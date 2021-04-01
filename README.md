@@ -24,6 +24,45 @@ public void order1Test() {
 }
 ```
 
+## How to download?
+With maven:
+```xml
+<!-- Step one, add this -->
+<repositories>
+    <repository>
+        <id>jitpack.io</id>
+        <url>https://jitpack.io</url>
+    </repository>
+</repositories>
+
+
+<!-- Step 2, add this in your dependencies tab -->
+<dependency>
+    <groupId>com.github.terminalsin</groupId>
+    <artifactId>bunnycdn-storage-java</artifactId>
+    <version>1.0.0</version>
+</dependency>
+```
+
+With gradle:
+
+```javascript
+// Add this first
+allprojects {
+	repositories {
+		...
+		maven { url 'https://jitpack.io' }
+	}
+}
+
+// Then this
+
+
+dependencies {
+    implementation 'com.github.terminalsin:bunnycdn-storage-java:1.0.0'
+}
+```
+
 ## Dependencies
 None :) (Okay fine we use JUnit for testing but shhh)
 
