@@ -178,7 +178,7 @@ public class BunnyJavaStorageAPI implements StorageAPI {
         if (path != null) {
             uriBuilder.append("/").append(path);
         }
-        uriBuilder.append("/").append(zone);
+        uriBuilder.append("/").append(fileName);
 
         final URL url;
 
