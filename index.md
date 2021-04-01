@@ -1,37 +1,70 @@
-## Welcome to GitHub Pages
+<p align="center">
+  <img width="50%" height="100%" src="https://files.readme.io/24c4101-bunnynet-logo-dark-small.png">
+  <br>
+  <a href="https://github.com/terminalsin/bunnycdn-storage-java/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/terminalsin/bunnycdn-storage-java"></a>
+  <a href="https://github.com/terminalsin/bunnycdn-storage-java/network"><img alt="GitHub forks" src="https://img.shields.io/github/forks/terminalsin/bunnycdn-storage-java"></a>
+  <a href="https://github.com/terminalsin/bunnycdn-storage-java/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/terminalsin/bunnycdn-storage-java"></a>
+  <a href="https://github.com/terminalsin/bunnycdn-storage-java"><img alt="GitHub license" src="https://img.shields.io/github/license/terminalsin/bunnycdn-storage-java"></a>
+</p>
+ 
 
-You can use the [editor on GitHub](https://github.com/terminalsin/bunnycdn-storage-java/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+## What is BunnyCDN Edge Storage? 
+Edge Storage is a cloud storage solution provided by bunny.net that automatically replicates your data to multiple regions around the world. It integrates tightly with the bunny.net CDN and was designed to be the fastest performing global storage solution thanks to smart geographical load balancing.
+## How to use the API?
+It's very simple, here's an example (SandboxStoreTest.java)
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+```java
+private static final String DUMMY_TEST_KEY = "344c04e4-9f81-4496-b63a-d79f6ac21e46";
 
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+public void order1Test() {
+    final StorageAPI bunny = new BunnyJavaClient(DUMMY_TEST_KEY).getStorageAPI(null);
+    bunny.uploadFile("testZone", "test/path/cool", "testfile.jar", new File("mytest.jar"));
+    bunny.downloadFile("testZone", "test/path/cool", "testfile.jar");
+    bunny.deleteFile("testZone", "test/path/cool", "testfile.jar");
+}
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+## How to download?
+With maven:
+```xml
+<!-- Step one, add this -->
+<repositories>
+    <repository>
+        <id>jitpack.io</id>
+        <url>https://jitpack.io</url>
+    </repository>
+</repositories>
 
-### Jekyll Themes
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/terminalsin/bunnycdn-storage-java/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+<!-- Step 2, add this in your dependencies tab -->
+<dependency>
+    <groupId>com.github.terminalsin</groupId>
+    <artifactId>bunnycdn-storage-java</artifactId>
+    <version>1.0.0</version>
+</dependency>
+```
 
-### Support or Contact
+With gradle:
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+```javascript
+// Add this first
+allprojects {
+	repositories {
+		...
+		maven { url 'https://jitpack.io' }
+	}
+}
+
+// Then this
+
+
+dependencies {
+    implementation 'com.github.terminalsin:bunnycdn-storage-java:1.0.0'
+}
+```
+
+## Dependencies
+None :) (Okay fine we use JUnit for testing but shhh)
+
+## Contact
+Issues tab. Won't be offering direct support.
