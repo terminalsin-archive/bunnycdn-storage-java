@@ -40,7 +40,7 @@ With maven:
 <dependency>
     <groupId>com.github.terminalsin</groupId>
     <artifactId>bunnycdn-storage-java</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.2</version>
 </dependency>
 ```
 
@@ -59,7 +59,7 @@ allprojects {
 
 
 dependencies {
-    implementation 'com.github.terminalsin:bunnycdn-storage-java:1.0.0'
+    implementation 'com.github.terminalsin:bunnycdn-storage-java:1.0.2'
 }
 ```
 
